@@ -62,7 +62,7 @@ export const ConnectChannels: FC = () => {
               'Social Connect',
               'width=700,height=700'
             );
-            return ;
+            return;
           }
 
           setShowCustom(undefined);
@@ -110,23 +110,22 @@ export const ConnectChannels: FC = () => {
 
   const getSocialLink = useCallback(
     (
-        identifier: string,
-        isExternal: boolean,
-        isWeb3: boolean,
-        customFields?: Array<{
-          key: string;
-          label: string;
-          validation: string;
-          defaultValue?: string;
-          type: 'text' | 'password';
-        }>
-      ) =>
+      identifier: string,
+      isExternal: boolean,
+      isWeb3: boolean,
+      customFields?: Array<{
+        key: string;
+        label: string;
+        validation: string;
+        defaultValue?: string;
+        type: 'text' | 'password';
+      }>
+    ) =>
       async () => {
         const gotoIntegration = async (externalUrl?: string) => {
           const { url, err } = await (
             await fetch(
-              `/integrations/social/${identifier}${
-                externalUrl ? `?externalUrl=${externalUrl}` : ``
+              `/integrations/social/${identifier}${externalUrl ? `?externalUrl=${externalUrl}` : ``
               }`
             )
           ).json();
@@ -375,12 +374,12 @@ export const ConnectChannels: FC = () => {
                 </div>
                 <div
                   {...(integration.disabled &&
-                  totalNonDisabledChannels === user?.totalChannels
+                    totalNonDisabledChannels === user?.totalChannels
                     ? {
-                        'data-tooltip-id': 'tooltip',
-                        'data-tooltip-content':
-                          'This channel is disabled, please upgrade your plan to enable it.',
-                      }
+                      'data-tooltip-id': 'tooltip',
+                      'data-tooltip-content':
+                        'This channel is disabled, please upgrade your plan to enable it.',
+                    }
                     : {})}
                   className={clsx(
                     'flex-1',

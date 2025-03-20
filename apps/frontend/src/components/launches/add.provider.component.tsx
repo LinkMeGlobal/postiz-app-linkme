@@ -325,19 +325,26 @@ export const AddProviderComponent: FC<{
   const router = useRouter();
   const fetch = useFetch();
   const modal = useModals();
+
+  // Filter social platforms to only show Facebook and Instagram options
+  const filteredSocial = social.filter(item =>
+    item.identifier === 'facebook' ||
+    item.identifier === 'instagram'
+  );
+
   const getSocialLink = useCallback(
     (
-        identifier: string,
-        isExternal: boolean,
-        isWeb3: boolean,
-        customFields?: Array<{
-          key: string;
-          label: string;
-          validation: string;
-          defaultValue?: string;
-          type: 'text' | 'password';
-        }>
-      ) =>
+      identifier: string,
+      isExternal: boolean,
+      isWeb3: boolean,
+      customFields?: Array<{
+        key: string;
+        label: string;
+        validation: string;
+        defaultValue?: string;
+        type: 'text' | 'password';
+      }>
+    ) =>
       async () => {
         const openWeb3 = async () => {
           const { component: Web3Providers } = web3List.find(
@@ -368,8 +375,7 @@ export const AddProviderComponent: FC<{
         const gotoIntegration = async (externalUrl?: string) => {
           const { url, err } = await (
             await fetch(
-              `/integrations/social/${identifier}${
-                externalUrl ? `?externalUrl=${externalUrl}` : ``
+              `/integrations/social/${identifier}${externalUrl ? `?externalUrl=${externalUrl}` : ``
               }`
             )
           ).json();
@@ -471,7 +477,7 @@ export const AddProviderComponent: FC<{
         </button>
         <h2 className="pt-[16px] pb-[10px]">Social</h2>
         <div className="grid grid-cols-3 gap-[10px] justify-items-center justify-center">
-          {social.map((item) => (
+          {filteredSocial.map((item) => (
             <div
               key={item.identifier}
               onClick={getSocialLink(
@@ -482,9 +488,9 @@ export const AddProviderComponent: FC<{
               )}
               {...(!!item.toolTip
                 ? {
-                    'data-tooltip-id': 'tooltip',
-                    'data-tooltip-content': item.toolTip,
-                  }
+                  'data-tooltip-id': 'tooltip',
+                  'data-tooltip-content': item.toolTip,
+                }
                 : {})}
               className={
                 'w-[200px] h-[100px] text-[14px] bg-input text-textColor relative justify-center items-center flex flex-col gap-[10px] cursor-pointer'

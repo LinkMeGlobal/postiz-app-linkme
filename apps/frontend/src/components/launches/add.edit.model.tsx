@@ -278,12 +278,12 @@ export const AddEditModal: FC<{
   useKeypress('Escape', askClose);
 
   const postNow = useCallback(
-    ((e) => {
+    ((e: React.MouseEvent<HTMLElement>) => {
       e.stopPropagation();
       e.preventDefault();
 
       return schedule('now')();
-    }) as MouseEventHandler<HTMLDivElement>,
+    }),
     []
   );
 
@@ -387,9 +387,9 @@ export const AddEditModal: FC<{
       const shortLink = !shortLinkUrl.ask
         ? false
         : await deleteDialog(
-            'Do you want to shortlink the URLs? it will let you get statistics over clicks',
-            'Yes, shortlink it!'
-          );
+          'Do you want to shortlink the URLs? it will let you get statistics over clicks',
+          'Yes, shortlink it!'
+        );
 
       setLoading(true);
       await fetch('/posts', {
@@ -446,9 +446,9 @@ export const AddEditModal: FC<{
         // @ts-ignore
         const clipboardItems = isFile
           ? // @ts-ignore
-            event.map((p) => ({ kind: 'file', getAsFile: () => p }))
+          event.map((p) => ({ kind: 'file', getAsFile: () => p }))
           : // @ts-ignore
-            event.clipboardData?.items; // Ensure clipboardData is available
+          event.clipboardData?.items; // Ensure clipboardData is available
         if (!clipboardItems) {
           return;
         }
@@ -764,7 +764,7 @@ export const AddEditModal: FC<{
                   </Button>
 
                   <Button
-                    onClick={schedule('schedule')}
+                    onClick={postNow}
                     className="rounded-[4px] relative group"
                     disabled={
                       selectedIntegrations.length === 0 ||
@@ -777,42 +777,16 @@ export const AddEditModal: FC<{
                         {!canSendForPublication
                           ? 'Not matching order'
                           : postFor
-                          ? 'Submit for order'
-                          : !existingData.integration
-                          ? selectedIntegrations.length === 0
-                            ? `Select channels from the circles above`
-                            : 'Add to calendar'
-                          : // @ts-ignore
-                          existingData?.posts?.[0]?.state === 'DRAFT'
-                          ? 'Schedule'
-                          : 'Update'}
+                            ? 'Submit for order'
+                            : !existingData.integration
+                              ? selectedIntegrations.length === 0
+                                ? `Select channels from the circles above`
+                                : 'Post now'
+                              : // @ts-ignore
+                              existingData?.posts?.[0]?.state === 'DRAFT'
+                                ? 'Schedule'
+                                : 'Update'}
                       </div>
-                      {!postFor && (
-                        <div className="h-full flex items-center">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                          >
-                            <path
-                              d="M15.0233 7.14804L9.39828 12.773C9.34604 12.8253 9.284 12.8668 9.21572 12.8951C9.14743 12.9234 9.07423 12.938 9.00031 12.938C8.92639 12.938 8.8532 12.9234 8.78491 12.8951C8.71662 12.8668 8.65458 12.8253 8.60234 12.773L2.97734 7.14804C2.8718 7.04249 2.8125 6.89934 2.8125 6.75007C2.8125 6.6008 2.8718 6.45765 2.97734 6.3521C3.08289 6.24655 3.22605 6.18726 3.37531 6.18726C3.52458 6.18726 3.66773 6.24655 3.77328 6.3521L9.00031 11.5798L14.2273 6.3521C14.2796 6.29984 14.3417 6.25838 14.4099 6.2301C14.4782 6.20181 14.5514 6.18726 14.6253 6.18726C14.6992 6.18726 14.7724 6.20181 14.8407 6.2301C14.909 6.25838 14.971 6.29984 15.0233 6.3521C15.0755 6.40436 15.117 6.46641 15.1453 6.53469C15.1736 6.60297 15.1881 6.67616 15.1881 6.75007C15.1881 6.82398 15.1736 6.89716 15.1453 6.96545C15.117 7.03373 15.0755 7.09578 15.0233 7.14804Z"
-                              fill="white"
-                            />
-                          </svg>
-                          <div
-                            onClick={postNow}
-                            className={clsx(
-                              'hidden group-hover:flex hover:flex flex-col justify-center absolute left-0 top-[100%] w-full h-[40px] bg-customColor22 border border-tableBorder',
-                              loading &&
-                                'cursor-not-allowed pointer-events-none opacity-50'
-                            )}
-                          >
-                            Post now
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </Button>
                 </Submitted>

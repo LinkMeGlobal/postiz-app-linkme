@@ -8,7 +8,7 @@
   <a href="https://postiz.com" target="_blank">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/765e9d72-3ee7-4a56-9d59-a2c9befe2311">
-    <img alt="Postiz Logo" src="https://github.com/user-attachments/assets/f0d30d70-dddb-4142-8876-e9aa6ed1cb99" width="280"/>
+    <img alt="Linkme Scheduler Logo" src="https://github.com/user-attachments/assets/f0d30d70-dddb-4142-8876-e9aa6ed1cb99" width="280"/>
   </picture>
   </a>
 </p>
@@ -23,9 +23,9 @@
 <div align="center">
   <strong>
   <h2>Your ultimate AI social media scheduling tool</h2><br />
-  <a href="https://postiz.com">Postiz</a>: An alternative to: Buffer.com, Hypefury, Twitter Hunter, Etc...<br /><br />
+  <a href="https://postiz.com">Linkme Scheduler</a>: An alternative to: Buffer.com, Hypefury, Twitter Hunter, Etc...<br /><br />
   </strong>
-  Postiz offers everything you need to manage your social media posts,<br />build an audience, capture leads, and grow your business.
+  Linkme Scheduler offers everything you need to manage your social media posts,<br />build an audience, capture leads, and grow your business.
 </div>
 
 
@@ -96,7 +96,7 @@
 ## Quick Start
 To have the project up and running, please follow the [Quick Start Guide](https://docs.postiz.com/quickstart)
 
-## Invest in the Postiz Coin :)
+## Invest in the Linkme Scheduler Coin :)
 DMsTbeCfX1crgAse5tver98KAMarPWeP3d6U3Gmmpump
 
 # License

@@ -9,7 +9,7 @@ export class AgenciesService {
   constructor(
     private _agenciesRepository: AgenciesRepository,
     private _notificationService: NotificationService
-  ) {}
+  ) { }
   getAgencyByUser(user: User) {
     return this._agenciesRepository.getAgencyByUser(user);
   }
@@ -37,21 +37,21 @@ export class AgenciesService {
     if (action === 'approve') {
       await this._notificationService.sendEmail(
         agency?.user?.email!,
-        'Your Agency has been approved and added to Postiz 🚀',
+        'Your Agency has been approved and added to Linkme Scheduler 🚀',
         `
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Agency has been approved and added to Postiz 🚀</title>
+    <title>Your Agency has been approved and added to Linkme Scheduler 🚀</title>
 </head>
 
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
   Hi there, <br /><br />
-  Your agency ${agency?.name} has been added to Postiz!<br />
+  Your agency ${agency?.name} has been added to Linkme Scheduler!<br />
   You can <a href="https://postiz.com/agencies/${agency?.slug}">check it here</a><br />
-  It will appear on the main agency of Postiz in the next 24 hours.<br /><br />
+  It will appear on the main agency of Linkme Scheduler in the next 24 hours.<br /><br />
 </body>
 </html>`
       );
@@ -73,13 +73,13 @@ export class AgenciesService {
 
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
   Hi there, <br /><br />
-  Your agency ${agency?.name} has been declined to Postiz!<br />
+  Your agency ${agency?.name} has been declined to Linkme Scheduler!<br />
   If you think we have made a mistake, please reply to this email and let us know
 </body>
 </html>`
     );
 
-    return ;
+    return;
   }
 
   async createAgency(user: User, body: CreateAgencyDto) {
@@ -101,10 +101,8 @@ export class AgenciesService {
         <tr>
             <td style="padding: 0 20px 20px 20px; text-align: center;">
                 <!-- Website -->
-                <a href="${
-                  body.website
-                }" style="text-decoration: none; color: #007bff;">${
-        body.website
+                <a href="${body.website
+      }" style="text-decoration: none; color: #007bff;">${body.website
       }</a>
             </td>
         </tr>
@@ -113,35 +111,23 @@ export class AgenciesService {
                 <!-- Social Media Links -->
                 <p style="margin: 10px 0; font-size: 16px;">
                     Social Medias:
-                    <a href="${
-                      body.facebook
-                    }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${
-        body.facebook
+                    <a href="${body.facebook
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${body.facebook
       }</a><br />
-                    <a href="${
-                      body.instagram
-                    }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${
-        body.instagram
+                    <a href="${body.instagram
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${body.instagram
       }</a><br />
-                    <a href="${
-                      body.twitter
-                    }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${
-        body.twitter
+                    <a href="${body.twitter
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${body.twitter
       }</a><br />
-                    <a href="${
-                      body.linkedIn
-                    }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${
-        body.linkedIn
+                    <a href="${body.linkedIn
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${body.linkedIn
       }</a><br />
-                    <a href="${
-                      body.youtube
-                    }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${
-        body.youtube
+                    <a href="${body.youtube
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${body.youtube
       }</a><br />
-                    <a href="${
-                      body.tiktok
-                    }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${
-        body.tiktok
+                    <a href="${body.tiktok
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">${body.tiktok
       }</a>
                 </p>
             </td>
@@ -159,27 +145,24 @@ export class AgenciesService {
             <td style="padding: 20px;">
                 <!-- Short Description -->
                 <h2 style="text-align: center; color: #333;">Name</h2>
-                <p style="text-align: center; color: #555; font-size: 16px;">${
-                  body.name
-                }</p>
+                <p style="text-align: center; color: #555; font-size: 16px;">${body.name
+      }</p>
             </td>
         </tr>
         <tr>
             <td style="padding: 20px;">
                 <!-- Short Description -->
                 <h2 style="text-align: center; color: #333;">Short Description</h2>
-                <p style="text-align: center; color: #555; font-size: 16px;">${
-                  body.shortDescription
-                }</p>
+                <p style="text-align: center; color: #555; font-size: 16px;">${body.shortDescription
+      }</p>
             </td>
         </tr>
         <tr>
             <td style="padding: 20px;">
                 <!-- Description -->
                 <h2 style="text-align: center; color: #333;">Description</h2>
-                <p style="text-align: center; color: #555; font-size: 16px;">${
-                  body.description
-                }</p>
+                <p style="text-align: center; color: #555; font-size: 16px;">${body.description
+      }</p>
             </td>
         </tr>
         <tr>
@@ -187,18 +170,16 @@ export class AgenciesService {
                 <!-- Niches -->
                 <h2 style="text-align: center; color: #333;">Niches</h2>
                 <p style="text-align: center; color: #555; font-size: 16px;">${body.niches.join(
-                  ','
-                )}</p>
+        ','
+      )}</p>
             </td>
         </tr>
         <tr>
             <td style="padding: 20px; text-align: center; background-color: #000;">
-                <a href="https://postiz.com/agencies/action/approve/${
-                  agency.id
-                }" style="margin: 0 10px; text-decoration: none; color: #007bff;">To approve click here</a><br /><br /><br />
-                <a href="https://postiz.com/agencies/action/decline/${
-                  agency.id
-                }" style="margin: 0 10px; text-decoration: none; color: #007bff;">To decline click here</a><br /><br /><br />
+                <a href="https://postiz.com/agencies/action/approve/${agency.id
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">To approve click here</a><br /><br /><br />
+                <a href="https://postiz.com/agencies/action/decline/${agency.id
+      }" style="margin: 0 10px; text-decoration: none; color: #007bff;">To decline click here</a><br /><br /><br />
             </td>
         </tr>
         <tr>
