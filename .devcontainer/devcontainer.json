@@ -1,5 +1,5 @@
 {
-	"name": "Linkme Scheduler Dev Container",
+	"name": "Postiz Dev Container",
 	"image": "localhost/postiz-devcontainer",
 	"features": {},
 	"customizations": {
