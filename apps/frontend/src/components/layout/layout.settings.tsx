@@ -21,7 +21,6 @@ import isoWeek from 'dayjs/plugin/isoWeek';
 import isBetween from 'dayjs/plugin/isBetween';
 import { ShowLinkedinCompany } from '@gitroom/frontend/components/launches/helpers/linkedin.component';
 import { SettingsComponent } from '@gitroom/frontend/components/layout/settings.component';
-import { Onboarding } from '@gitroom/frontend/components/onboarding/onboarding';
 import { Support } from '@gitroom/frontend/components/layout/support';
 import { ContinueProvider } from '@gitroom/frontend/components/layout/continue.provider';
 import { CopilotKit } from '@copilotkit/react-core';
@@ -80,7 +79,6 @@ export const LayoutSettings = ({ children }: { children: ReactNode }) => {
           <Toaster />
           <ShowPostSelector />
           <NewSubscription />
-          {user.tier !== 'FREE' && <Onboarding />}
           <Support />
           <ContinueProvider />
           <div className="min-h-[100vh] w-full max-w-[1440px] mx-auto bg-primary px-6 text-textColor flex flex-col">

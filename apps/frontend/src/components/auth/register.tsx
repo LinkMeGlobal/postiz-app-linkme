@@ -163,9 +163,6 @@ export function RegisterAfter({
             <GithubProvider />
           ) : (
             <div className="gap-[5px] flex flex-col">
-              <GoogleProvider />
-              {!!neynarClientId && <FarcasterProvider />}
-              {billingEnabled && <WalletProvider />}
             </div>
           ))}
         {!isAfterProvider && (
@@ -174,7 +171,6 @@ export function RegisterAfter({
             <div
               className={`absolute z-[1] ${interClass} justify-center items-center w-full left-0 top-0 flex`}
             >
-              <div className="bg-customColor15 px-[16px]">OR</div>
             </div>
           </div>
         )}

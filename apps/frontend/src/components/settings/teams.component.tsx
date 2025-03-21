@@ -201,8 +201,8 @@ export const TeamsComponent = () => {
                 {p.role === 'USER'
                   ? 'User'
                   : p.role === 'ADMIN'
-                  ? 'Admin'
-                  : 'Super Admin'}
+                    ? 'Admin'
+                    : 'Super Admin'}
               </div>
               {+myLevel > +getLevel(p.role) ? (
                 <div className="flex-1 flex justify-end">
@@ -235,11 +235,6 @@ export const TeamsComponent = () => {
               )}
             </div>
           ))}
-        </div>
-        <div>
-          <Button onClick={addMember}>
-            Add another member
-          </Button>
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ export class StripeService {
     private _userService: UsersService,
     private _messagesService: MessagesService,
     private _trackService: TrackService
-  ) {}
+  ) { }
   validateRequest(rawBody: Buffer, signature: string, endpointSecret: string) {
     return stripe.webhooks.constructEvent(rawBody, signature, endpointSecret);
   }
@@ -243,13 +243,13 @@ export class StripeService {
       pricesList.data.find(
         (p) =>
           p?.recurring?.interval?.toLowerCase() ===
-            (body.period === 'MONTHLY' ? 'month' : 'year') &&
+          (body.period === 'MONTHLY' ? 'month' : 'year') &&
           p?.nickname === body.billing + ' ' + body.period &&
           p?.unit_amount ===
-            (body.period === 'MONTHLY'
-              ? priceData.month_price
-              : priceData.year_price) *
-              100
+          (body.period === 'MONTHLY'
+            ? priceData.month_price
+            : priceData.year_price) *
+          100
       ) ||
       (await stripe.prices.create({
         active: true,
@@ -375,7 +375,7 @@ export class StripeService {
       cancel_url: process.env['FRONTEND_URL'] + `/billing?cancel=true${isUtm}`,
       success_url:
         process.env['FRONTEND_URL'] +
-        `/launches?onboarding=true&check=${uniqueId}${isUtm}`,
+        `/launches&check=${uniqueId}${isUtm}`,
       mode: 'subscription',
       subscription_data: {
         ...(allowTrial ? { trial_period_days: 7 } : {}),
@@ -389,10 +389,10 @@ export class StripeService {
       },
       ...(body.tolt
         ? {
-            metadata: {
-              tolt_referral: body.tolt,
-            },
-          }
+          metadata: {
+            tolt_referral: body.tolt,
+          },
+        }
         : {}),
       allow_promotion_codes: true,
       line_items: [
@@ -581,12 +581,12 @@ export class StripeService {
       pricesList.data.find(
         (p) =>
           p?.recurring?.interval?.toLowerCase() ===
-            (body.period === 'MONTHLY' ? 'month' : 'year') &&
+          (body.period === 'MONTHLY' ? 'month' : 'year') &&
           p?.unit_amount ===
-            (body.period === 'MONTHLY'
-              ? priceData.month_price
-              : priceData.year_price) *
-              100
+          (body.period === 'MONTHLY'
+            ? priceData.month_price
+            : priceData.year_price) *
+          100
       ) ||
       (await stripe.prices.create({
         active: true,

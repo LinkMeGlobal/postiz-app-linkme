@@ -120,22 +120,7 @@ export const SettingsPopup: FC<{ getRef?: Ref<any> }> = (props) => {
               panel: 'pt-0',
             }}
           >
-            <Tabs.List>
-              {/* <Tabs.Tab value="profile">Profile</Tabs.Tab> */}
-              {!!user?.tier?.team_members && isGeneral && (
-                <Tabs.Tab value="teams">Teams</Tabs.Tab>
-              )}
-              {!!user?.tier?.webhooks && (
-                <Tabs.Tab value="webhooks">Webhooks</Tabs.Tab>
-              )}
-              {!!user?.tier?.autoPost && (
-                <Tabs.Tab value="autopost">Auto Post</Tabs.Tab>
-              )}
-              <Tabs.Tab value="signatures">Signatures</Tabs.Tab>
-              {!!user?.tier?.public_api && isGeneral && showLogout && (
-                <Tabs.Tab value="api">Public API</Tabs.Tab>
-              )}
-            </Tabs.List>
+
 
             {/* <Tabs.Panel value="profile" pt="md">
               <div className="flex flex-col gap-[4px]">
@@ -225,27 +210,6 @@ export const SettingsPopup: FC<{ getRef?: Ref<any> }> = (props) => {
               </Tabs.Panel>
             )}
 
-            {!!user?.tier?.webhooks && (
-              <Tabs.Panel value="webhooks" pt="md">
-                <Webhooks />
-              </Tabs.Panel>
-            )}
-
-            {!!user?.tier?.autoPost && (
-              <Tabs.Panel value="autopost" pt="md">
-                <Autopost />
-              </Tabs.Panel>
-            )}
-
-            <Tabs.Panel value="signatures" pt="md">
-              <SignaturesComponent />
-            </Tabs.Panel>
-
-            {!!user?.tier?.public_api && isGeneral && showLogout && (
-              <Tabs.Panel value="api" pt="md">
-                <PublicComponent />
-              </Tabs.Panel>
-            )}
           </Tabs>
 
           {showLogout && (
