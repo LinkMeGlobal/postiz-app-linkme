@@ -24,7 +24,7 @@ export const PublicComponent = () => {
     <div className="flex flex-col">
       <h3 className="text-[20px]">Public API</h3>
       <div className="text-customColor18 mt-[4px]">
-        Use Linkme Scheduler API to integrate with your tools.
+        Use Postiz API to integrate with your tools.
         <br />
         <a
           className="underline hover:text-white"

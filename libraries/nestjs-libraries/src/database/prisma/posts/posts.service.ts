@@ -49,7 +49,7 @@ export class PostsService {
     private _mediaService: MediaService,
     private _shortLinkService: ShortLinkService,
     private _webhookService: WebhooksService
-  ) { }
+  ) {}
 
   async getStatistics(orgId: string, id: string) {
     const getPost = await this.getPostsRecursively(id, true, orgId, true);
@@ -84,11 +84,11 @@ export class PostsService {
       post!,
       ...(post?.childrenPost?.length
         ? await this.getPostsRecursively(
-          post?.childrenPost?.[0]?.id,
-          false,
-          orgId,
-          false
-        )
+            post?.childrenPost?.[0]?.id,
+            false,
+            orgId,
+            false
+          )
         : []),
     ];
   }
@@ -118,9 +118,9 @@ export class PostsService {
             url:
               m.path.indexOf('http') === -1
                 ? process.env.FRONTEND_URL +
-                '/' +
-                process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY +
-                m.path
+                  '/' +
+                  process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY +
+                  m.path
                 : m.path,
             type: 'image',
             path:
@@ -166,9 +166,9 @@ export class PostsService {
               url:
                 path.indexOf('http') === -1
                   ? process.env.FRONTEND_URL +
-                  '/' +
-                  process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY +
-                  path
+                    '/' +
+                    process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY +
+                    path
                   : path,
               type: 'image',
               path:
@@ -245,13 +245,13 @@ export class PostsService {
       const finalPost =
         firstPost.integration?.type === 'article'
           ? await this.postArticle(firstPost.integration!, [
-            firstPost,
-            ...morePosts,
-          ])
+              firstPost,
+              ...morePosts,
+            ])
           : await this.postSocial(firstPost.integration!, [
-            firstPost,
-            ...morePosts,
-          ]);
+              firstPost,
+              ...morePosts,
+            ]);
 
       if (firstPost?.intervalInDays) {
         this._workerServiceProducer.emit('post', {
@@ -290,10 +290,12 @@ export class PostsService {
       await this._notificationService.inAppNotification(
         firstPost.organizationId,
         `Error posting on ${firstPost.integration?.providerIdentifier} for ${firstPost?.integration?.name}`,
-        `An error occurred while posting on ${firstPost.integration?.providerIdentifier
-        } ${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-          ? err
-          : ''
+        `An error occurred while posting on ${
+          firstPost.integration?.providerIdentifier
+        } ${
+          !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? err
+            : ''
         }`,
         true
       );
@@ -895,8 +897,9 @@ export class PostsService {
                 })),
                 {
                   id: '',
-                  content: `Check out the full story here:\n${body.postId || body.url
-                    }`,
+                  content: `Check out the full story here:\n${
+                    body.postId || body.url
+                  }`,
                   image: [],
                 },
               ],
@@ -1001,7 +1004,7 @@ export class PostsService {
       orgId,
       getNotificationsForOrgSince.length === 1
         ? subject
-        : '[Linkme Scheduler] Your latest notifications',
+        : '[Postiz] Your latest notifications',
       message
     );
   }

@@ -58,7 +58,7 @@ RUN npm ci --no-fund && npx nx run-many --target=build --projects=frontend,backe
 VOLUME /config
 VOLUME /uploads
 
-LABEL org.opencontainers.image.title="Linkme Scheduler App (DevContainer)"
+LABEL org.opencontainers.image.title="Postiz App (DevContainer)"
 
 # Output image
 FROM base AS dist
@@ -75,4 +75,4 @@ VOLUME /config
 VOLUME /uploads
 
 ## Labels at the bottom, because CI will eventually add dates, commit hashes, etc.
-LABEL org.opencontainers.image.title="Linkme Scheduler App (Production)"
+LABEL org.opencontainers.image.title="Postiz App (Production)"

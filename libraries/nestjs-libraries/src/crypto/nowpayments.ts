@@ -23,7 +23,7 @@ export interface ProcessPayment {
 
 @Injectable()
 export class Nowpayments {
-  constructor(private _subscriptionService: SubscriptionService) { }
+  constructor(private _subscriptionService: SubscriptionService) {}
 
   async processPayment(path: string, body: ProcessPayment) {
     const decrypt = AuthService.verifyJWT(path) as any;
@@ -60,7 +60,7 @@ export class Nowpayments {
           price_currency: 'USD',
           order_id: make,
           pay_currency: 'SOL',
-          order_description: 'Lifetime deal account for Linkme Scheduler',
+          order_description: 'Lifetime deal account for Postiz',
           ipn_callback_url:
             process.env.NEXT_PUBLIC_BACKEND_URL +
             `/public/crypto/${signRequest}`,
