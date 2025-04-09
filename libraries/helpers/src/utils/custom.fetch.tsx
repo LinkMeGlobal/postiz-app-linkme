@@ -15,8 +15,8 @@ const FetchProvider = createContext(
   customFetch(
     // @ts-ignore
     {
-      baseUrl: '',
-      beforeRequest: () => {},
+      baseUrl: process.env.BACKEND_URL!,
+      beforeRequest: () => { },
       afterRequest: () => {
         return true;
       },
