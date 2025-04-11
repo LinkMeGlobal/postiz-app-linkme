@@ -10,6 +10,11 @@ import { useVariables } from '@gitroom/react/helpers/variable.context';
 export const useMenuItems = () => {
   const { isGeneral } = useVariables();
   return [
+    {
+      name: isGeneral ? 'Calendar' : 'Launches',
+      icon: 'launches',
+      path: '/launches',
+    },
     ...(!isGeneral
       ? [
         {
@@ -19,11 +24,6 @@ export const useMenuItems = () => {
         },
       ]
       : []),
-    {
-      name: isGeneral ? 'Calendar' : 'Launches',
-      icon: 'launches',
-      path: '/launches',
-    },
     ...(isGeneral
       ? [
         {
@@ -43,7 +43,6 @@ export const useMenuItems = () => {
         },
       ]
       : []),
-
     {
       name: 'Billing',
       icon: 'billing',

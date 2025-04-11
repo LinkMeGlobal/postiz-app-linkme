@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import { useVariables } from '@gitroom/react/helpers/variable.context';
 
 export const SettingsComponent = () => {
-  const {isGeneral} = useVariables();
+  const { isGeneral } = useVariables();
   const user = useUser();
   const router = useRouter();
 
@@ -66,7 +66,7 @@ export const SettingsComponent = () => {
           {/*  <div>*/}
           {/*    <Checkbox disableForm={true} checked={true} name="Send Email" />*/}
           {/*  </div>*/}
-          {/*  <div>Show news with everybody in Gitroom</div>*/}
+          {/*  <div>Show news with everybody in LinkMe Scheduler</div>*/}
           {/*</div>*/}
         </div>
       )}

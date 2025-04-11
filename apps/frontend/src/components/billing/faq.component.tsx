@@ -20,14 +20,14 @@ const useFaqList = () => {
       ]
       : []),
     {
-      title: `Can I trust ${isGeneral ? 'Linkme Scheduler' : 'Gitroom'}?`,
-      description: `${isGeneral ? 'Linkme Scheduler' : 'Gitroom'
-        } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${isGeneral ? 'Linkme Scheduler' : 'Gitroom'
+      title: `Can I trust ${isGeneral ? 'Linkme Scheduler' : 'LinkMe Scheduler'}?`,
+      description: `${isGeneral ? 'Linkme Scheduler' : 'LinkMe Scheduler'
+        } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${isGeneral ? 'Linkme Scheduler' : 'LinkMe Scheduler'
         } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/gitroomhq/postiz-app" target="_blank" style="text-decoration: underline;">click here</a>.`,
     },
     {
       title: 'What are channels?',
-      description: `${isGeneral ? 'Linkme Scheduler' : 'Gitroom'
+      description: `${isGeneral ? 'Linkme Scheduler' : 'LinkMe Scheduler'
         } allows you to schedule your posts between different channels.
 A channel is a publishing platform where you can schedule your posts.
 For example, you can schedule your posts on X, Facebook, Instagram, TikTok, YouTube, Reddit, Linkedin, Dribbble, Threads and Pinterest.`,

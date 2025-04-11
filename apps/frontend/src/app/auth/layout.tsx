@@ -45,7 +45,7 @@ export default async function AuthLayout({
                     </path>
                   </svg>
                 ) : (
-                  <div className="text-[40px]">Gitroom</div>
+                  <div className="text-[40px]">LinkMe Scheduler</div>
                 )}
               </div>
             </div>

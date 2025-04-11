@@ -6,7 +6,7 @@ import { Activate } from '@gitroom/frontend/components/auth/activate';
 import { isGeneralServerSide } from '@gitroom/helpers/utils/is.general.server.side';
 
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Linkme Scheduler' : 'Gitroom'} - Activate your account`,
+  title: `${isGeneralServerSide() ? 'Linkme Scheduler' : 'LinkMe Scheduler'} - Activate your account`,
   description: '',
 };
 
