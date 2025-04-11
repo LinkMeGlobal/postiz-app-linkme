@@ -158,13 +158,7 @@ export function RegisterAfter({
             Sign Up
           </h1>
         </div>
-        {!isAfterProvider &&
-          (!isGeneral ? (
-            <GithubProvider />
-          ) : (
-            <div className="gap-[5px] flex flex-col">
-            </div>
-          ))}
+
         {!isAfterProvider && (
           <div className="h-[20px] mb-[24px] mt-[24px] relative">
             <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
@@ -203,14 +197,14 @@ export function RegisterAfter({
         <div className={clsx('text-[12px]', interClass)}>
           By registering you agree to our{' '}
           <a
-            href={`https://postiz.com/terms`}
+            href={`https://about.link.me/subdomains/about/termsandconditions?language=en`}
             className="underline hover:font-bold"
           >
             Terms of Service
           </a>{' '}
           and{' '}
           <a
-            href={`https://postiz.com/privacy`}
+            href={`https://about.link.me/subdomains/about/privacypolicy?language=en`}
             className="underline hover:font-bold"
           >
             Privacy Policy
