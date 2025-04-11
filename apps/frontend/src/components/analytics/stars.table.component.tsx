@@ -177,13 +177,12 @@ export const StarsTableComponent = () => {
             />
           </svg>
         </div>
-        <h2 className="text-[24px]">Stars per day</h2>
         <div
           onClick={changePage('increase')}
           className={clsx(
             !isLoadingStars &&
-              (loading || stars?.stars?.length < 10) &&
-              'opacity-50 pointer-events-none'
+            (loading || stars?.stars?.length < 10) &&
+            'opacity-50 pointer-events-none'
           )}
         >
           <svg
@@ -254,7 +253,7 @@ export const StarsTableComponent = () => {
           </table>
         ) : (
           <div className="py-[24px] px-[16px]">
-            Load your GitHub repository from settings to see analytics
+            Soon To Come - Analytics about your posts on social media accounts
           </div>
         )}
       </div>

@@ -112,7 +112,7 @@ export async function middleware(request: NextRequest) {
     if (nextUrl.pathname === '/') {
       return NextResponse.redirect(
         new URL(
-          !!process.env.IS_GENERAL ? '/launches' : `/analytics`,
+          '/launches',
           nextUrl.href
         )
       );
